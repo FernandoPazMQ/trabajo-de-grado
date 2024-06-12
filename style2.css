@@ -1,0 +1,41 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+.bg {
+    background-image: url('img/fondoU2.png'); 
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: moveBg 10s linear infinite;
+}
+
+@keyframes moveBg {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
+}
+
+.login-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 800px; /* Aumentar el ancho del cuadro de login */
+}
+
+.login-form .logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100px;
+    height: 100px;
+}

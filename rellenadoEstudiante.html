@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Seguimientos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/icons/icono-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sistema de Seguimientos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">principal</a>
+                        <a class="dropdown-item" href="#">Comunicados</a>
+                        <a class="dropdown-item" href="#">salir</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bg">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="border p-3 text-center">
+                        <img id="uploadIcon" src="img/icono.png" class="img-fluid icon" alt="Icon">
+                        <div class="form-group mt-3">
+                            <label for="fileUpload" class="btn btn-secondary">Subir archivo</label>
+                            <input type="file" class="file-upload" id="fileUpload" accept=".pdf,.doc,.docx">
+                            <img id="uploadPreview" class="upload-preview" src="" alt="Vista previa del archivo">
+                        </div>
+                        <button class="btn btn-info custom-button">Manuales</button>
+                        <button class="btn btn-warning custom-button">Contactos</button>
+                        <button class="btn btn-success custom-button">Preguntas Frecuentes</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <form id="dataForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="segundoNombre">Segundo Nombre</label>
+                                <input type="text" class="form-control" id="segundoNombre" placeholder="Ingresa tu segundo nombre" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="apellidoPaterno">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apellidoPaterno" placeholder="Ingresa tu apellido paterno" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="apellidoMaterno">Apellido Materno</label>
+                                <input type="text" class="form-control" id="apellidoMaterno" placeholder="Ingresa tu apellido materno" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="carnetIdentidad">Carnet de Identidad</label>
+                                <input type="text" class="form-control" id="carnetIdentidad" placeholder="Ingresa tu carnet de identidad" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="region">Región</label>
+                                <select class="form-control" id="region" required>
+                                    <option value="" disabled selected>Selecciona tu región</option>
+                                    <option>LP</option>
+                                    <option>CH</option>
+                                    <option>PA</option>
+                                    <option>PO</option>
+                                    <option>OR</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="tipoTema">Tipo de Tema</label>
+                                <input type="text" class="form-control" id="tipoTema" placeholder="Ingresa el tipo de tema" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="temaProyecto">Tema de Proyecto de Grado o Tesis</label>
+                                <input type="text" class="form-control" id="temaProyecto" placeholder="Ingresa el tema de proyecto de grado o tesis" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="idEstudiante">Nro ID del Estudiante</label>
+                                <input type="text" class="form-control" id="idEstudiante" placeholder="Ingresa el ID del estudiante" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="idProyecto">Nro ID de Proyecto o Tesis Asignado</label>
+                                <input type="text" class="form-control" id="idProyecto" placeholder="Ingresa el ID de proyecto o tesis asignado" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirmación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                <button type="button" class="btn btn-primary" id="confirmSubmit" style="display: none;">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('fileUpload').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('uploadPreview').src = e.target.result;
+                document.getElementById('uploadPreview').style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        let isValid = true;
+        for (const input of form.elements) {
+            if (input.type !== 'submit' && !input.value) {
+                isValid = false;
+                break;
+            }
+        }
+
+        if (isValid) {
+            $('#modalMessage').text('¿Está seguro de enviar?');
+            $('#confirmSubmit').show();
+        } else {
+            $('#modalMessage').text('Datos incompletos');
+            $('#confirmSubmit').hide();
+        }
+        $('#confirmationModal').modal('show');
+    });
+
+    document.getElementById('confirmSubmit').addEventListener('click', function() {
+        $('#confirmationModal').modal('hide');
+        alert('Enviado correctamente');
+        document.getElementById('dataForm').reset();
+        document.getElementById('uploadPreview').style.display = 'none';
+    });
+</script>
+</body>
+</html>
